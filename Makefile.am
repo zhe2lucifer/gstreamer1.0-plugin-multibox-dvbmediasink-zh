@@ -20,17 +20,20 @@ plugin_LTLIBRARIES = libgstdvbvideosink.la libgstdvbaudiosink.la
 libgstdvbvideosink_la_SOURCES = common.c $(built_sources)
 libgstdvbaudiosink_la_SOURCES = common.c $(built_sources)
 
+EXTRA_libgstdvbaudiosink_la_DEPENDENCIES = libgstdvbaudiosink_la-gstdvbaudiosink.o  
+EXTRA_libgstdvbvideosink_la_DEPENDENCIES = libgstdvbvideosink_la-gstdvbvideosink.o 
+
 # flags used to compile this plugin
 # add other _CFLAGS and _LIBS as needed
 libgstdvbvideosink_la_CFLAGS = $(GST_CFLAGS) $(GST_PLUGINS_BASE_CFLAGS) $(GST_BASE_CFLAGS) $(ORC_CFLAGS)
 #libgstdvbvideosink_la_LIBADD = $(GST_LIBS) -lgstbase-$(GST_MAJORMINOR) $(GST_PLUGINS_BASE_LIBS) $(GST_BASE_LIBS) -laui
-libgstdvbvideosink_la_LIBADD = libgstdvbvideosink_la-gstdvbvideosink.o $(GST_LIBS) -lgstbase-$(GST_MAJORMINOR) $(GST_PLUGINS_BASE_LIBS) $(GST_BASE_LIBS) @LIBAUI_LIBS@
+libgstdvbvideosink_la_LIBADD = $(GST_LIBS) -lgstbase-$(GST_MAJORMINOR) $(GST_PLUGINS_BASE_LIBS) $(GST_BASE_LIBS) @LIBAUI_LIBS@
 #libgstdvbvideosink_la_LIBADD = $(GST_LIBS) -lgstbase-$(GST_MAJORMINOR) $(GST_PLUGINS_BASE_LIBS) $(GST_BASE_LIBS)
 libgstdvbvideosink_la_LDFLAGS = $(GST_PLUGIN_LDFLAGS)
 
 libgstdvbaudiosink_la_CFLAGS = $(GST_CFLAGS) $(GST_PLUGINS_BASE_CFLAGS) $(GST_BASE_CFLAGS) $(ORC_CFLAGS)
 #libgstdvbaudiosink_la_LIBADD = $(GST_LIBS) -lgstbase-$(GST_MAJORMINOR) $(GST_PLUGINS_BASE_LIBS) $(GST_BASE_LIBS)
-libgstdvbaudiosink_la_LIBADD = libgstdvbaudiosink_la-gstdvbaudiosink.o $(GST_LIBS) -lgstbase-$(GST_MAJORMINOR) $(GST_PLUGINS_BASE_LIBS) $(GST_BASE_LIBS) @LIBAUI_LIBS@
+libgstdvbaudiosink_la_LIBADD = $(GST_LIBS) -lgstbase-$(GST_MAJORMINOR) $(GST_PLUGINS_BASE_LIBS) $(GST_BASE_LIBS) @LIBAUI_LIBS@
 #libgstdvbaudiosink_la_LIBADD = $(GST_LIBS) -lgstbase-$(GST_MAJORMINOR) $(GST_PLUGINS_BASE_LIBS) $(GST_BASE_LIBS) -laui
 libgstdvbaudiosink_la_LDFLAGS = $(GST_PLUGIN_LDFLAGS)
 
