@@ -1,0 +1,28 @@
+# gstreamer1.0-plugin-multibox-dvbmediasink
+This git is based on pli4 git://git.code.sf.net/p/openpli/gst-plugin-dvbmediasink Branch gst-1.0
+It adds support for more boxes then only the et stb's.
+Boxes which currently should be ok are:
+vuplus series, dm8000 and dm800se
+alias : christophecvr
+stefansat@telenet.be
+
+An example off bb file is added.
+
+This is the one I use in meta-oe-alliance
+
+How to use :  READ REMARK !
+
+Some xtrend boxes need a max pcm rate off 48000.
+For those boxes add --with-max-pcmrate-48K
+
+Examples configs :
+
+dreambox dm800se : DVBMEDIASINK_CONFIG = "--with-machine=${MACHINE} --with-pcm --with-wma --with-wmv --with-dtsdownmix --with-eac3"
+dreambox dm8000  : DVBMEDIASINK_CONFIG = "--with-machine=${MACHINE} --with-pcm --with-wma --with-wmv --with-dtsdownmix --with-eac3 --with-amr --with-limited-mpeg4v2"
+vuplus           : DVBMEDIASINK_CONFIG = "--with-machine=${MACHINE} --with-pcm --with-eac3 --with-amr --with-wmv"
+
+REMARK :
+
+Currently works are started to simplify the DVBMEDIASINK_CONFIG based on MACHINE parameter.
+This containes the right stb box group for the mediasink The list can be consulted into the Makefile of meta-alliance.
+
